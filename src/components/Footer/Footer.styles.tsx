@@ -24,6 +24,4 @@ export const BrandLink = styled(Link)`
   }
 `
 
-export const Text = styled.h5`
-  font-family: ${theme.fonts.heading};
-`
+export const Text = styled.h5``
