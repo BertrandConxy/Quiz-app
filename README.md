@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <h3><b>Info Star wars</b></h3>
+  <h3><b>Quiz App</b></h3>
 
 </div>
 
@@ -11,7 +11,7 @@
 # 📗 Table of Contents
 
 - [� Table of Contents](#-table-of-contents)
-- [📖 \[Info Star wars\] ](#-info-star-wars-)
+- [📖 \[Quiz App\] ](#-info-star-wars-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -31,9 +31,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Info Star wars] <a name="about-project"></a>
+# 📖 [Quiz App] <a name="about-project"></a>
 
-This is a web app provides information about the Star Wars series. You can get information about different star wars characters and you can view each ones profile. It is built with React + TypeScript and consumes data from the [SWAPI](https://swapi.dev/documentation#intro)
+This is a web app help you do a quiz and after it gives you your scores. It has authentication and each individual will get his/her own results.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -50,9 +50,9 @@ This is a web app provides information about the Star Wars series. You can get i
 
 ### Key Features <a name="key-features"></a>
 
-- **View the characters list**
-- **View each character's profile**
-- **Image carousel in the home page**
+- **Do the quiz**
+- **See the results**
+- **Authentication**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -82,7 +82,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone git@github.com:BertrandConxy/Info-star-wars.git
+  git clone git@github.com:BertrandConxy/Quiz-app.git
 ```
 
 ### Install
@@ -90,7 +90,7 @@ Clone this repository to your desired folder:
 Install this project with:
 
 ```sh
-  cd Info-star-wars
+  cd Quiz-app
   npm install
 ```
 
@@ -102,13 +102,6 @@ To run the project, execute the following command:
 npm run dev
 ```
 
-### Run tests
-
-To run all tests, run the following command:
-
-```sh
-  npm run test
-```
 
 <!-- AUTHORS -->
 
@@ -126,11 +119,9 @@ To run all tests, run the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
 
-- [ ] **view the planets in star wars series**
-- [ ] **View the space ships in the star wars series**
-- [ ] **View the star ships**
+- [ ] **Consuming data from the API done by my partner because currently It is using mock data**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
