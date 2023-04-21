@@ -10,8 +10,12 @@ import {
 import Button from '../Common/Button'
 import { useState, useEffect } from 'react'
 import { Links } from '../../data/navigation'
+import { useAuthentication } from '../../services/authentication/authentication.context'
+import { useNavigate } from 'react-router-dom'
 
 export default function NavBar() {
+  const { onLogout } = useAuthentication()
+  const navigate = useNavigate()
   const [toggleMenu, setToggleMenu] = useState<boolean>(false)
   const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth)
   const closeNav = () => {
@@ -31,9 +35,7 @@ export default function NavBar() {
     }
   }, [])
 
-  useEffect(() => {
-  
-  }, [])
+  useEffect(() => {}, [])
 
   return (
     <NavContainer>
@@ -48,7 +50,14 @@ export default function NavBar() {
               </LinkItem>
             ))}
           </NavLinks>
-          <Button text='Log Out' handleClick={()=> console.log('logged out')} danger/>
+          <Button
+            text="Log Out"
+            handleClick={() => {
+              onLogout()
+              navigate('/')
+            }}
+            danger
+          />
         </NavBox>
       )}
       <HamburgerButton onClick={openNav} />

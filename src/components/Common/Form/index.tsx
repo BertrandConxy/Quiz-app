@@ -35,9 +35,12 @@ export default function Form({
         </div>
         {type === 'register' && (
           <div>
-            <Input type="email" placeholder="Email" required />
+            <Input type="text" placeholder="Email" required />
           </div>
         )}
+        <div>
+          <Input type="password" placeholder="Password" required />
+        </div>
         <LoginBtn>{btnText}</LoginBtn>
         <p>
           {subText}? <TextLink to={path}>{link}</TextLink>{' '}

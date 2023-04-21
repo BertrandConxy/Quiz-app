@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useLocation } from 'react-router-dom'
 import Button from '../components/Common/Button'
 import { Link } from 'react-router-dom'
+import { useAuthentication } from '../services/authentication/authentication.context'
 
 const ResultContainer = styled.div`
   display: flex;
@@ -35,20 +36,24 @@ const Span = styled.span`
 `
 
 export default function Result() {
+  const { user } = useAuthentication()
   const location = useLocation()
-  const { answers, points } = location.state
+  const users = localStorage.getItem('users')
+  const stringifyUsers = JSON.parse(users!)
+
+  const character = stringifyUsers.find(
+    (u: any) => u.username === user.username && u.password === user.password,
+  )
+  console.log(character)
   return (
     <ResultContainer>
       <Title>Recent Results</Title>
       <Content>
         <SubTitle>
-          Names: <Span>Bertrand</Span>
+          Names: <Span>{character.username}</Span>
         </SubTitle>
         <SubTitle>
-          Scores:{' '}
-          <Span>
-            {points}/{answers.length}
-          </Span>
+          Scores: <Span>{character.score}</Span>
         </SubTitle>
       </Content>
       <Link to="/">

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Button from '../Common/Button'
+import { useAuthentication } from '../../services/authentication/authentication.context'
 
 import {
   QuestionBox,
@@ -40,6 +41,30 @@ export default function QuestionCard({ Questionnaire }: Props) {
   const handleClick = (answer: string) => {
     setSelectedAnswer(answer)
     return undefined
+  }
+
+  const { user } = useAuthentication()
+
+  const updateUser = (email: string) => {
+    let users = JSON.parse(localStorage.getItem('users') || '[]')
+
+    // Find the user by email
+    const userIndex = users.findIndex((user: any) => user.email === email)
+    if (userIndex === -1) {
+      throw new Error('User not found')
+    }
+
+    // Update the user's data
+    const updatedUser = {
+      ...users[userIndex],
+      score: points,
+    }
+    users[userIndex] = updatedUser
+
+    // Save the updated user to local storage
+    localStorage.setItem('users', JSON.stringify(users))
+
+    return updatedUser
   }
 
   useEffect(() => {
@@ -95,7 +120,10 @@ export default function QuestionCard({ Questionnaire }: Props) {
                 to={'/result'}
                 state={{ answers: answers, points: points }}
               >
-                <Button handleClick={() => undefined} text="Done" />
+                <Button
+                  handleClick={() => updateUser(user.email)}
+                  text="Done"
+                />
               </Direct>
             ) : answerStatus === null ? null : (
               <Button

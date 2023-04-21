@@ -1,6 +1,7 @@
 import Form from '../components/Common/Form'
 import styled from 'styled-components'
 import { useState } from 'react'
+import { useAuthentication } from '../services/authentication/authentication.context'
 
 const View = styled.div`
   height: 80vh;
@@ -11,6 +12,7 @@ interface User {
 }
 export default function Login() {
   const [user, setUser] = useState<User>()
+  const { onLogin } = useAuthentication()
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -20,8 +22,9 @@ export default function Login() {
       userName,
       password,
     }
+    const result = onLogin(userName, password)
     setUser({ userName, password })
-    console.log('Login')
+    console.log('Login', result)
   }
   return (
     <View>
