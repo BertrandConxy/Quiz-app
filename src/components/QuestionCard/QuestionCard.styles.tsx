@@ -27,6 +27,9 @@ export const QuestionBox = styled.button`
   cursor: pointer;
   background-color: transparent;
   transition: 0.4s;
+  &.active {
+    background-color: ${(props) => props.theme.colors.ui.tertiary};
+  }
   &:hover {
     background-color: ${(props) => props.theme.colors.ui.tertiary};
   }

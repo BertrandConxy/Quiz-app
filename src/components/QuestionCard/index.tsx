@@ -64,16 +64,28 @@ export default function QuestionCard({ Questionnaire }: Props) {
     <div>
       <QuestionContainer>
         <Title>{question}</Title>
-        <QuestionBox onClick={() => handleClick(option1)}>
+        <QuestionBox
+          style={selectedAnswer === option1 ? styles.selected : undefined}
+          onClick={() => handleClick(option1)}
+        >
           <Text>{option1}</Text>
         </QuestionBox>
-        <QuestionBox onClick={() => handleClick(option2)}>
+        <QuestionBox
+          style={selectedAnswer === option2 ? styles.selected : undefined}
+          onClick={() => handleClick(option2)}
+        >
           <Text>{option2}</Text>
         </QuestionBox>
-        <QuestionBox onClick={() => handleClick(option3)}>
+        <QuestionBox
+          style={selectedAnswer === option3 ? styles.selected : undefined}
+          onClick={() => handleClick(option3)}
+        >
           <Text>{option3}</Text>
         </QuestionBox>
-        <QuestionBox onClick={() => handleClick(option4)}>
+        <QuestionBox
+          style={selectedAnswer === option4 ? styles.selected : undefined}
+          onClick={() => handleClick(option4)}
+        >
           <Text>{option4}</Text>
         </QuestionBox>
         {answerStatus === null ? null : (
@@ -96,4 +108,10 @@ export default function QuestionCard({ Questionnaire }: Props) {
       </QuestionContainer>
     </div>
   )
+}
+
+const styles = {
+  selected: {
+    backgroundColor: '#757575',
+  },
 }
