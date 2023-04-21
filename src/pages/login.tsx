@@ -24,7 +24,6 @@ export default function Login() {
     }
     const result = onLogin(userName, password)
     setUser({ userName, password })
-    console.log('Login', result)
   }
   return (
     <View>

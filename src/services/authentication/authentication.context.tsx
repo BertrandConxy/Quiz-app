@@ -23,8 +23,6 @@ export function useAuthentication() {
 
 export default function AuthenticationProvider({ children }: iChildrenNode) {
   const [user, setUser] = useState<User | null>(null)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
   const [isAuthenticated, setIsAuthenticated] = useState(false)
 
   const onLogout = () => {

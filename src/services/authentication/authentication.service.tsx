@@ -11,7 +11,6 @@ export const login = (username: string, password: string) => {
   )
   if (user) {
     // authenticated
-    console.log('User authenticated:', user)
     return user
   } else {
     // authentication failed

@@ -1,5 +1,4 @@
 import React from 'react'
-import Questionnaire from '../components/Questionnaire'
 import QuestionCard from '../components/QuestionCard'
 export interface iQuestion {
   id: number

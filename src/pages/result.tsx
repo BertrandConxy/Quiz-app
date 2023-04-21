@@ -44,7 +44,6 @@ export default function Result() {
   const character = stringifyUsers.find(
     (u: any) => u.username === user.username && u.password === user.password,
   )
-  console.log(character)
   return (
     <ResultContainer>
       <Title>Recent Results</Title>

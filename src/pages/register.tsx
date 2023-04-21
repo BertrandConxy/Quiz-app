@@ -17,11 +17,6 @@ export default function Register() {
     const password = (e.currentTarget.elements[2] as HTMLInputElement).value
     const result = onRegister(userName, email, password)
     navigate('/')
-    const userObj = {
-      userName,
-      password,
-    }
-    console.log('registering', result)
   }
   return (
     <View>
