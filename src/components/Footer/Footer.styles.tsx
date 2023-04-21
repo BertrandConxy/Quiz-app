@@ -15,8 +15,8 @@ export const FooterContainer = styled.footer`
 `
 
 export const BrandLink = styled(Link)`
-  font-family: ${theme.fonts.brand};
   font-size: ${theme.fontSizes.h1};
+  font-weight: bold;
   color: ${theme.colors.ui.primary};
   flex-grow: 1;
   @media screen and (max-width: 768px) {

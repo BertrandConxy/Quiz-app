@@ -1,13 +1,13 @@
 import { iLink } from '../typeDefs/navLink'
 export const Links: iLink[] = [
   {
-    id: '999',
+    id: '1',
     path: '/',
     text: 'Home',
   },
   {
-    id: '1000',
-    path: '/characters',
-    text: 'Characters',
+    id: '2',
+    path: '/result',
+    text: 'Result',
   },
 ]

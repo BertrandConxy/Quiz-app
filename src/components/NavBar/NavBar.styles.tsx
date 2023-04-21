@@ -32,7 +32,7 @@ export const NavBox = styled.div`
     align-items: flex-start;
     gap: ${theme.sizes[1]};
     z-index: 11;
-    background-color: ${theme.colors.ui.tertiary};
+    background-color: ${theme.colors.ui.quaternary};
     width: 100%;
     top: 0;
     left: 0;
@@ -41,8 +41,8 @@ export const NavBox = styled.div`
 `
 
 export const BrandLink = styled(Link)`
-  font-family: ${theme.fonts.brand};
   font-size: ${theme.fontSizes.h1};
+  font-weight: bold;
   color: ${theme.colors.ui.primary};
   flex-grow: 1;
   @media screen and (max-width: 768px) {
@@ -50,13 +50,15 @@ export const BrandLink = styled(Link)`
   }
 `
 export const LinkItem = styled(NavLink)`
-  font-family: ${theme.fonts.heading};
   color: ${theme.colors.ui.primary};
+  font-size: ${theme.fontSizes.body};
   margin-right: ${theme.space[2]};
-  transition: 0.5s;
+  transition: 0.4s;
+  &:hover {
+    filter: opacity(0.5);
+  }
   &.active {
-    color: ${theme.colors.ui.danger};
-    text-shadow: 0.09rem -0.09rem 0.1rem red;
+    color: ${theme.colors.ui.success};
   }
 `
 

@@ -7,14 +7,13 @@ import {
   HamburgerButton,
   CloseButton,
 } from './NavBar.styles'
+import Button from '../Common/Button'
 import { useState, useEffect } from 'react'
 import { Links } from '../../data/navigation'
-import { iLink } from '../../typeDefs/navLink'
 
 export default function NavBar() {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false)
   const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth)
-  const [links, setLinks] = useState<iLink[]>([...Links])
   const closeNav = () => {
     setToggleMenu(false)
   }
@@ -33,42 +32,23 @@ export default function NavBar() {
   }, [])
 
   useEffect(() => {
-    let visitedLinks: string[] = []
-    const storedVisitedLinks = localStorage.getItem('visitedLinks')
-    if (storedVisitedLinks) {
-      const stringify = JSON.parse(storedVisitedLinks)
-      visitedLinks = [...stringify]
-      visitedLinks = visitedLinks.slice(0, 3)
-      const modifiedLinks: iLink[] = visitedLinks.map((linky) => {
-        return {
-          id: linky.split('/').pop()!,
-          path: linky,
-          text: `Char ${linky.split('/').pop()}`,
-        }
-      })
-      setLinks((prevLinks) => {
-        const existingIds = prevLinks.map((link) => link.id)
-        const newLinks = modifiedLinks.filter(
-          (link) => !existingIds.includes(link.id),
-        )
-        return [...prevLinks.concat(newLinks)]
-      })
-    }
+  
   }, [])
 
   return (
     <NavContainer>
-      <BrandLink to="/">Star Wars</BrandLink>
+      <BrandLink to="/">Quiz App</BrandLink>
       {(toggleMenu || screenWidth > 768) && (
         <NavBox>
           <CloseButton onClick={closeNav} />
           <NavLinks>
-            {links.map(({ id, path, text }) => (
+            {Links.map(({ id, path, text }) => (
               <LinkItem to={path} key={id} onClick={closeNav}>
                 {text}
               </LinkItem>
             ))}
           </NavLinks>
+          <Button text='Log Out' handleClick={()=> console.log('logged out')} />
         </NavBox>
       )}
       <HamburgerButton onClick={openNav} />
