@@ -60,7 +60,7 @@ This is a web app help you do a quiz and after it gives you your scores. It has 
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-[Link](quiz-app666.netlify.app)
+[Link](https://quiz-app666.netlify.app)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
