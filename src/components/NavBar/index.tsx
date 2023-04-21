@@ -7,16 +7,11 @@ import {
   HamburgerButton,
   CloseButton,
 } from './NavBar.styles'
-import Search from '../Search'
 import { useState, useEffect } from 'react'
 import { Links } from '../../data/navigation'
 import { iLink } from '../../typeDefs/navLink'
 
-export default function NavBar({
-  Searched,
-}: {
-  Searched: (search: string) => void
-}) {
+export default function NavBar() {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false)
   const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth)
   const [links, setLinks] = useState<iLink[]>([...Links])
@@ -74,7 +69,6 @@ export default function NavBar({
               </LinkItem>
             ))}
           </NavLinks>
-          <Search handleSearch={Searched} />
         </NavBox>
       )}
       <HamburgerButton onClick={openNav} />
