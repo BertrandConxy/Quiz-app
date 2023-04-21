@@ -20,6 +20,7 @@ export default function Register() {
         link="Login"
         path="/"
         handleSubmit={handleRegister}
+        type="register"
       />
     </View>
   )

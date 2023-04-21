@@ -16,6 +16,10 @@ export default function Login() {
     e.preventDefault()
     const userName = (e.currentTarget.elements[0] as HTMLInputElement).value
     const password = (e.currentTarget.elements[1] as HTMLInputElement).value
+    const userObj = {
+      userName,
+      password,
+    }
     setUser({ userName, password })
     console.log('Login')
   }
@@ -28,6 +32,7 @@ export default function Login() {
         link="Signup"
         path="/register"
         handleSubmit={handleLogin}
+        type="login"
       />
     </View>
   )

@@ -14,6 +14,7 @@ interface Props {
   link: string
   path: string
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void
+  type: string
 }
 
 export default function Form({
@@ -23,6 +24,7 @@ export default function Form({
   link,
   path,
   handleSubmit,
+  type,
 }: Props) {
   return (
     <FormContainer>
@@ -31,9 +33,11 @@ export default function Form({
         <div>
           <Input type="text" placeholder="Username" required />
         </div>
-        <div>
-          <Input type="password" placeholder="Password" required />
-        </div>
+        {type === 'register' && (
+          <div>
+            <Input type="email" placeholder="Email" required />
+          </div>
+        )}
         <LoginBtn>{btnText}</LoginBtn>
         <p>
           {subText}? <TextLink to={path}>{link}</TextLink>{' '}
