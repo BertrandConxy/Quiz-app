@@ -1,21 +1,99 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import Button from '../Common/Button'
+
 import {
   QuestionBox,
   QuestionContainer,
   Title,
   Text,
+  AnswerStatusView,
+  Direct,
 } from './QuestionCard.styles'
+import { iQuestion } from '../../pages/quiz'
 
-export default function QuestionCard() {
+interface Props {
+  Questionnaire: iQuestion[]
+}
+
+interface AnswerObject {
+  question: number
+  answer: boolean
+}
+
+export default function QuestionCard({ Questionnaire }: Props) {
+  const [index, setIndex] = useState(0)
+  const [points, setPoints] = useState(0)
+  const [answerStatus, setAnswerStatus] = useState<boolean | null>(null)
+  const [answers, setAnswers] = useState<AnswerObject[]>([])
+  const [selectedAnswer, setSelectedAnswer] = useState<string>('')
+  const currentQuestion = Questionnaire[index]
+  const {
+    id,
+    question,
+    option1,
+    option2,
+    option3,
+    option4,
+    answer,
+  } = currentQuestion
+
+  const handleClick = (answer: string) => {
+    setSelectedAnswer(answer)
+    return undefined
+  }
+
+  useEffect(() => {
+    if (selectedAnswer != '') {
+      if (selectedAnswer == answer) {
+        setPoints((points) => points + 1)
+        setAnswerStatus(true)
+        setAnswers([...answers, { question: index + 1, answer: true }])
+      } else {
+        setAnswerStatus(false)
+        setAnswers([...answers, { question: index + 1, answer: false }])
+      }
+    }
+  }, [selectedAnswer])
+
+  // resetting selectedAnswer after each question
+  useEffect(() => {
+    setSelectedAnswer('')
+    setAnswerStatus(false)
+  }, [index])
   return (
-    <QuestionContainer>
-      <Title>What is the biggest country in Africa?</Title>
-      <QuestionBox>
-        <Text>Ghana</Text>
-      </QuestionBox>
-      <QuestionBox>
-        <Text>Ghana</Text>
-      </QuestionBox>
-    </QuestionContainer>
+    <div>
+      <QuestionContainer>
+        <Title>{question}</Title>
+        <QuestionBox onClick={() => handleClick(option1)}>
+          <Text>{option1}</Text>
+        </QuestionBox>
+        <QuestionBox onClick={() => handleClick(option2)}>
+          <Text>{option2}</Text>
+        </QuestionBox>
+        <QuestionBox onClick={() => handleClick(option3)}>
+          <Text>{option3}</Text>
+        </QuestionBox>
+        <QuestionBox onClick={() => handleClick(option4)}>
+          <Text>{option4}</Text>
+        </QuestionBox>
+        {answerStatus === null ? null : (
+          <AnswerStatusView>
+            {index + 1 >= Questionnaire.length ? (
+              <Direct
+                to={'/result'}
+                state={{ answers: answers, points: points }}
+              >
+                <Button handleClick={() => undefined} text="Done" />
+              </Direct>
+            ) : answerStatus === null ? null : (
+              <Button
+                handleClick={() => setIndex(index + 1)}
+                text="Next Question"
+              />
+            )}
+          </AnswerStatusView>
+        )}
+      </QuestionContainer>
+    </div>
   )
 }

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const QuestionContainer = styled.div`
   margin-top: ${(props) => props.theme.space[4]};
@@ -8,10 +9,12 @@ export const QuestionContainer = styled.div`
   justify-content: center;
   align-items: center;
 `
-export const Title = styled.h3``
+export const Title = styled.h2`
+  margin-bottom: 4rem;
+`
 export const Text = styled.p``
 
-export const QuestionBox = styled.div`
+export const QuestionBox = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,18 +24,22 @@ export const QuestionBox = styled.div`
   padding: ${(props) => props.theme.space[3]};
   width: 40%;
   margin-bottom: ${(props) => props.theme.space[3]};
+  cursor: pointer;
+  background-color: transparent;
+  transition: 0.4s;
+  &:hover {
+    background-color: ${(props) => props.theme.colors.ui.tertiary};
+  }
   @media screen and (max-width: 768px) {
     width: 100%;
   }
 `
 
-export const Rounded = styled.div`
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  border: 1px solid;
-  border-color: #666af6;
-  padding: 7px;
-  text-align: center;
-  margin-right: 5px;
+export const AnswerStatusView = styled.div`
+  margin-top: ${(props) => props.theme.space[3]};
+  background-color: ${(props) => props.theme.colors.bg.tertiary};
+  padding: ${(props) => props.theme.space[2]};
+  border-radius: ${(props) => props.theme.sizes[0]};
 `
+
+export const Direct = styled(Link)``

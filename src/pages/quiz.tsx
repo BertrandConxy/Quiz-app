@@ -1,5 +1,6 @@
 import React from 'react'
 import Questionnaire from '../components/Questionnaire'
+import QuestionCard from '../components/QuestionCard'
 export interface iQuestion {
   id: number
   question: string
@@ -41,5 +42,5 @@ const questionnaire: iQuestion[] = [
 ]
 
 export default function Quiz() {
-  return <Questionnaire Questionnaire={questionnaire} />
+  return <QuestionCard Questionnaire={questionnaire} />
 }
