@@ -5,7 +5,6 @@ import { useAuthentication } from '../../services/authentication/authentication.
 
 export default function Navigation() {
   const { isAuthenticated } = useAuthentication()
-  console.log(isAuthenticated)
   return (
     <div>{isAuthenticated ? <AppNavigation /> : <AccountNavigation />}</div>
   )
