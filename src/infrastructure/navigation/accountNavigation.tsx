@@ -7,7 +7,7 @@ import NotFound from '../../pages/notFound'
 export default function AccountNavigation() {
   return (
     <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/*" element={<NotFound />} />
    </Routes>
