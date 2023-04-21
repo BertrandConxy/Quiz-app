@@ -48,7 +48,7 @@ export default function NavBar() {
               </LinkItem>
             ))}
           </NavLinks>
-          <Button text='Log Out' handleClick={()=> console.log('logged out')} />
+          <Button text='Log Out' handleClick={()=> console.log('logged out')} danger/>
         </NavBox>
       )}
       <HamburgerButton onClick={openNav} />
